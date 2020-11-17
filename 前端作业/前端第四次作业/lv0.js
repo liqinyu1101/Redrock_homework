@@ -6,5 +6,4 @@ const person =
      area: 'Nanan'}
 }
 const{name,age,address:{city,area}}= person;
-
 console.log(area)
