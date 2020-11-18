@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        p{
+            font:50px Times New Roman;
+        }
+            </style>
+</head>
+<body>
+    <select>
+        <option value="蓝色" onclick="colorChange1()">蓝色</option>
+        <option value="红色" selected="selected" onclick="colorChange4()">红色</option>
+        <option value="绿色" onclick="colorChange2()">绿色</option>
+        <option value="黄色" onclick="colorChange3()">黄色</option>
+    </select>
+    <select>
+        <option value="大" onclick="changeSize1()">大</option>
+        <option value="中" onclick="changeSize2()">中</option>
+        <option value="小" onclick="changeSize3()">小</option>
+
+    </select>
+
+    <p>
+    bluerock
+    <br>redrock
+    <br>greenrock
+    <br>yellowrock
+    </p>
+
+    <script>
+        //改变页面颜色
+        var bodyArray = document.getElementsByTagName('body')
+        var body = bodyArray[0]
+
+        let colorChange1=()=>
+        {body.style.backgroundColor='rgb(103, 177, 247)'}
+
+        let colorChange2=()=>
+        {body.style.backgroundColor='rgb(132, 219, 143)'}
+
+        let colorChange3=()=>
+        {body.style.backgroundColor='rgb(238, 224, 97)'}
+
+        let colorChange4=()=>
+        {body.style.backgroundColor='red'}
+        //改变字体大小
+        var pArray = document.getElementsByTagName('p')
+        var pTag = pArray[0]
+
+        let changeSize1 = ()=>
+        {pTag.style.fontSize = '10px'}
+        let changeSize2 = ()=>
+        {pTag.style.fontSize = '30px'}
+        let changeSize3 = ()=>
+        {pTag.style.fontSize = '100px'}
+
+
+    </script>
+</body>
+</html>
