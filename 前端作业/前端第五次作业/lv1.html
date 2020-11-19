@@ -41,15 +41,14 @@
     
     <script>
         let spanColor= document.querySelectorAll('span');
-        var times = 0;
         let colorChange = () => {
-            if(times %2 == 0){
+            if(spanColor[0].style.backgroundColor == 'black'){
                 for(var j = 0; j < spanColor.length; j++) {
                     spanColor[j].style.backgroundColor='white'}
-                times++;}
+               }
             else{for(var j = 0; j < spanColor.length; j++) {
                     spanColor[j].style.backgroundColor='black'}
-                times++;}
+                }
         }
     
     </script>
