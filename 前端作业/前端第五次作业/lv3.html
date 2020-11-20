@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id = "small-sister">
+        <li>毛毛姐姐</li>
+        <li>星星姐姐</li>
+        <li>峰峰姐姐</li>
+        <li>欣欣姐姐</li>
+    </ul>
+
+    <script>
+    
+    
+    
+    (function(){
+        var small_sister = document.getElementById('small-sister')
+        var sisterArray = small_sister.getElementsByTagName('li')
+        small_sister.addEventListener('click',showBeauty,false)
+        function showBeauty(e){
+            var x = e.target;
+            if(x.nodeName.toLowerCase()=='li'){
+                alert('The most beautiful girl is:'+x.innerHTML);
+                }
+            }
+            for(var i=0;i<sisterArray.length;i++){
+                if(i%2==0){
+                    sisterArray[i].style.color = 'green'}
+                else{
+                    sisterArray[i].style.color ='red'}
+            }
+            })()
+    
+        
+       
+
+
+       
+    </script>
+</body>
+</html>
