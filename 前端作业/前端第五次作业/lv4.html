@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /*写点样式*/
+    h1{font:30px/1.5em "宋体";
+       display: flex;
+       }
+    #msg {
+        width:400px;
+        height:150px;
+    }
+    #btn{
+        color:white;
+        background-color:rgb(97, 169, 228);
+        width:200px;
+        height:30px;
+        border-radius: 5px;
+        position:relative; 
+        right:-205px;
+        bottom:-10px;
+        
+    }
+    </style>
+</head>
+<body>
+   <!--写点按钮-->
+   <h1>留言板</h1>
+   <input id="msg" type="text" size="40" value=""> 
+   <br><input id="btn" type="button" value="留言">
+   <div id="msg_c"></div>
+
+   <script>
+    //试图实现留言功能
+    //页面完全载入后立即执行的操作
+    window.onload = ()=>{
+        var Msg = document.getElementById("msg");
+        var Btn = document.getElementById("btn");
+        var Msg_c = document.getElementById("msg_c");
+        //建立新节点
+        var Ul = document.createElement("ul");
+        //在Div中添加ul节点
+        Msg_c.appendChild(Ul)
+        //点击留言触发事件
+        Btn.onclick = ()=>{
+             //新添加的文本即是输入框中的文本
+            var MsgValue = Msg.value;    
+            var Li = document.createElement("li");     
+            Li.innerHTML = MsgValue;
+           
+
+            var arrayLi = Ul.getElementsByTagName("li") 
+                if(arrayLi.length>0){
+                    //如果已经留言了，就在已有子节点前插入新的子节点
+                    Ul.insertBefore(Li,arrayLi[0]);
+                }else{
+                    //如果还没开始留言，就在UL中创建新的子节点
+                    Ul.appendChild(Li);
+                }
+            }
+        }
+    
+    //其实js部分主要是抄的
+   </script>
+   
+
+</body>
+</html>
