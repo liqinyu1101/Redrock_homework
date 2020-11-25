@@ -43,10 +43,10 @@
         let spanColor= document.querySelectorAll('span');
         let colorChange = () => {
             if(spanColor[0].style.backgroundColor == 'black'){
-                for(var j = 0; j < spanColor.length; j++) {
+                for(var j in spanColor) {
                     spanColor[j].style.backgroundColor='white'}
                }
-            else{for(var j = 0; j < spanColor.length; j++) {
+            else{for(var j in spanColor) {
                     spanColor[j].style.backgroundColor='black'}
                 }
         }
