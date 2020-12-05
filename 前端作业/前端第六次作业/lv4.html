@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ajax(options){
+            fetch(options.url)
+                .then(res => res.json())
+                .then(res =>console.log(res))
+                .catch(console.error)
+        }
+
+        ajax({
+            url:'http://musicapi.leanapp.cn/personalized?limit=30'
+        })
+    </script>
+</body>
+</html>

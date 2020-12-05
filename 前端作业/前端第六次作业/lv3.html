@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function Ajax(url,data,header){
+
+            this.url = '';
+            this.data = JSON.stringify({ });
+            this.header={
+              'Content-Type':'application/x-www-form-urlenconded'
+            };
+
+            this.get=(url,data)=>{
+
+            var param = '';
+            for(var attr in this.data) {
+                param += attr + '=' +this.data[attr] + '&';
+            }
+            param = param.substr(0,param.length-1);
+            console.log('hello world')
+            this.url = this.url+'?'+param;
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('get',this.url);
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4) {
+                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+                        const res = JSON.parse(xhr.responseText);
+                        console.log(res);
+                        console.log('请求成功');
+                    } else {
+                        console.log('请求失败');
+                    }
+                }
+            };
+            xhr.send();   
+                }
+
+            this.post=(url,data,header)=>{
+                var param = '';
+                for(var attr in this.data) {
+                    param += attr + '=' +this.data[attr] + '&';
+                }
+                param = param.substr(0,param.length-1);
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('post',this.url);
+                var Content_Type = this.header['Content-Type'];
+                xhr.setRequestHeader('Content-Type', Content_Type);
+                xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4) {
+                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+                        const res = JSON.parse(xhr.responseText);
+                        console.log(res);
+                        console.log('请求成功');
+                    } else {
+                        console.log('请求失败');
+                    }
+                  }
+                };
+                var param = '';
+        
+                if(Content_Type == 'application/x-www-form-urlenconded'){
+                    xhr.send(param);
+                }else {
+                    xhr.send(JSON.stringify(defaults.data))
+                }
+            }
+       }
+        
+            const ajax = new Ajax()
+            console.log(ajax)
+            ajax['url'] = 'http://musicapi.leanapp.cn/personalized'
+            ajax['data'] = {
+                limit : 30
+            }
+        
+            ajax.get()
+        
+
+    
+    </script>
+</body>
+</html>
