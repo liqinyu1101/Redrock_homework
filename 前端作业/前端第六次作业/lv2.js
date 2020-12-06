@@ -43,25 +43,17 @@ function ajax(options) {
     }
 
     xhr.onload = function () {
-
-        
-        var contentType = xhr.getResponseHeader('Content-Type');
-        
+        var contentType = xhr.getResponseHeader('Content-Type');       
         var responseText = xhr.responseText;
-
-        
-        if (contentType.includes('application/json')) {
-           
+        if (contentType.includes('application/json')) {    
             responseText = JSON.parse(responseText)
         }
-
         if (xhr.status == 200) {
             defaults.success(responseText, xhr);
         }else {
             defaults.error(responseText, xhr); 
         }
-    }
-    
+    }   
 }
 
 

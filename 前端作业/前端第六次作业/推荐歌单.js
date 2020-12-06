@@ -3,15 +3,11 @@ const btn = document.querySelector('.btn');
 const status = document.querySelector('.status');
 
 const xhr = new XMLHttpRequest();
-
 xhr.open('get', 'http://musicapi.leanapp.cn/personalized?limit=30',true);
-
 let res;
 
 xhr.onreadystatechange = () => {
-
-  if (xhr.readyState !== 4) {
-   
+  if (xhr.readyState !== 4) { 
       status.innerText = 'loading......';
   }
   if (xhr.readyState === 4) {
