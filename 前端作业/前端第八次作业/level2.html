@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Function.prototype.call2 = function(context,...args){
+          if(typeof this !== 'function'){
+              throw TypeError(`${context} is not a function!`)
+          }     
+          content = context || window
+          context.fn = this 
+          let result = context.fn(...args)
+          delete context.fn
+          return result;
+        }
+        function sayInfo(age) {
+          console.log("name:"+this.name)
+          console.log("age:"+age)
+        }
+        var user = {
+          name: "zzx"
+        }   
+        sayInfo.call2(user,100)
+    </script>
+</body>
+</html>
