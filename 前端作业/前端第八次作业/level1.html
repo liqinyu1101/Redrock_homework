@@ -15,9 +15,12 @@
                     return function(){
                         return fn(num)
                     };
+                /*result[i]=function(){
+                    return fn(arr[i])
+                }*/        
                 })(arr[i])
             }
-        return result;
+          return result;
         }
         let array = [1, 2, 3]
         let foo = (x) => {
