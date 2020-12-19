@@ -11,7 +11,7 @@
           if(typeof this !== 'function'){
               throw TypeError(`${context} is not a function!`)
           }     
-          content = context || window
+          context = context || window
           context.fn = this 
           let result = context.fn(...args)
           delete context.fn
