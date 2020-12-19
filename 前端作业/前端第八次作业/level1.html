@@ -8,9 +8,8 @@
 <body>
     <script>
         function makeClosures(arr,fn){
-            var result = new Array();
-
-            for(var i=0;i<arr.length;i++){
+            let result = new Array();
+            for(let i = 0;i<arr.length;i++){
                 // result[i] = (function(num){
                 //     return function(){
                 //         return fn(num)
@@ -18,9 +17,7 @@
                 // result[i]=function(){
                 //     return fn(arr[i])
                 // }
-              
-                result[i] = fn.bind(global,arr[i])
-                    
+                result[i] = fn.bind(window,arr[i])                   
                 // })(arr[i])
             }
           return result;
