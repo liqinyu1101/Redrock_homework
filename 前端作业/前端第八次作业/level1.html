@@ -17,7 +17,7 @@
                 // result[i]=function(){
                 //     return fn(arr[i])
                 // }
-                result[i] = fn.bind(window,arr[i])                   
+                result[i] = fn.bind(null,arr[i])                   
                 // })(arr[i])
             }
           return result;
